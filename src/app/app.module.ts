@@ -7,6 +7,7 @@ import { ContainerComponent } from './container/container.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { ExpensesComponent } from './expenses/expenses.component';
+import { ExpenseDetailsComponent } from './expense-details/expense-details.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ExpensesComponent } from './expenses/expenses.component';
     HeaderComponent,
     HomeComponent,
     ExpensesComponent,
+    ExpenseDetailsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

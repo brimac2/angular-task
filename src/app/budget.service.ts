@@ -1,11 +1,14 @@
+import { ExpensesComponent } from './expenses/expenses.component';
 import { Expense } from './expense';
 import { Injectable } from '@angular/core';
+
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BudgetService {
-  expenses: Expense[] = [
+  EXPENSES: Expense[] = [
     {
       id: '1',
       name: 'pizza',
@@ -19,10 +22,17 @@ export class BudgetService {
       description: 'Americano from Vero caffe',
     },
   ];
+  messageService: any;
 
   constructor() {}
 
-  getExpenses(): Expense[] {
-    return this.expenses;
+  getExpenses(): Observable<Expense[]> {
+    const expenses = of(this.EXPENSES);
+    return expenses;
+  }
+
+  getExpense(id: string): Observable<Expense> {
+    const expense = this.EXPENSES.find((e) => e.id === id)!;
+    return of(expense);
   }
 }
